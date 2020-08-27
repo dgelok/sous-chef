@@ -1,23 +1,27 @@
 const initialState = {
-    recipes: [],
     searchResults: [],
-    groceryList: []
+    shoppingList: []
 }
 
 let reducer = (state=initialState, action) =>{
     switch (action.type) {
-        case "ADD_RECIPE" :
+        case "ADD_RECIPE_TO_SHOPPING" :
             return {
                 ...state,
-                recipes: state.recipes.concat(action.newRecipe)
+                shoppingList: state.shoppingList.concat(action.recipe)
             };
-        case "REMOVE_RECIPE" :
+        case "DELETE_RECIPE_FROM_SHOPPING" :
             return {
                 ...state,
-                recipes: state.recipes.filter(n =>{
-                    return n.id !== action.dropRecipe.id
+                shoppingList: state.shoppingList.filter(n =>{
+                    return n.id !== action.recipe.id
                 })
             };
+        case "UPDATE_SEARCH_RESULTS" :
+            return {
+                ...state,
+                searchResults: action.recipes
+            }
         default :
             return state
     }
