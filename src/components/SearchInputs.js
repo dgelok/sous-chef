@@ -41,10 +41,9 @@ const SearchInputs = () => {
                     <Form.Control size="sm" type="text" placeholder="any" />
                 </Form.Group>
                 
-                
-                    <Button type="submit" className="mt-4 ml-1">
-                        Submit
-                    </Button>
+                <Button type="submit" className="mt-4 ml-1">
+                    Submit
+                </Button>
                 
                 {/* <Col xs="auto">
                 <label for="exampleFormControlSelect1">Select Type</label>

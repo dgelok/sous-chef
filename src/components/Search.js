@@ -7,7 +7,7 @@ const Search = () => {
   return (
     <>
     <Container>
-        <h3>Here's the search page</h3>
+        <h3 className="m-5">Here's the search page</h3>
         <SearchInputs/>
         <br />
         <br />
