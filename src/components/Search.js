@@ -4,7 +4,7 @@ import SearchResults from './SearchResults'
 import {Container, Row} from 'react-bootstrap'
 import APIkey from "../APIkeys"
 import data from '../utils/data'
-
+import {connect} from 'react-redux'
 
 class Search extends Component {
 
@@ -14,22 +14,30 @@ class Search extends Component {
             cuisineType: "",
             searchTerms: "",
             mealType: "",
-            searchResults: []
+            searchResults: [],
+            loading: true
         };
       }
 
+    changeState = () =>{
+
+      this.setState({
+        loading: !(this.state.loading)
+      })
+    }
 
   render() {
+    console.log("ReRendering")
     return (
       <>
         <Container>
             <h3 className="m-5">Here's the search page</h3>
-            <SearchInputs/>
+            <SearchInputs changeState={this.changeState}/>
             <br />
             <br />
             <br />
             <Row>
-                <SearchResults recipes={data}/>
+                <SearchResults recipes={this.props.searchResults}/>
             </Row>
         </Container>
       </>
@@ -37,5 +45,12 @@ class Search extends Component {
   }
 }
 
-export default Search
+
+let mapStateToProps = (state) =>{
+  return {
+      searchResults: state.searchResults
+  }
+}
+
+export default connect(mapStateToProps, null)(Search)
 

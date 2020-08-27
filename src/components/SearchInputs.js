@@ -10,40 +10,31 @@ class SearchInputs extends Component {
       super(props)
     
       this.state = {
-         count: 0
+        loading: true
       }
     }
-    
-    // mapDispatchToProps(dispatch): 
-    // returns an object. It'll have a prop that must be dispatched.
-    // map dispatch of whatever updates global state.
 
-    // mapStateToProps()
-
-    // can use async before e!
     handleClick = async (e) =>{
         e.preventDefault();
-        // let thing = await fetch(thing)
-        console.log(e.target.cuisine.value)
-        console.log(e.target.type.value)
-        console.log(e.target.keywords.value)
+        // console.log(e.target.cuisine.value)
+        // console.log(e.target.type.value)
+        // console.log(e.target.keywords.value)
 
-        let URL = `https://api.spoonacular.com/recipes/complexSearch?apiKey=${APIkey}&cuisine=${e.target.cuisine.value}&query=${e.target.keywords.value}`
+        let URL = `https://api.spoonacular.com/recipes/complexSearch?apiKey=${APIkey}&cuisine=${e.target.cuisine.value}&number=50&query=${e.target.keywords.value}`
         try {
             let response = await fetch(URL);
             let results = await response.json()
             console.log(results.results)
-            this.props.onSearchUpdate(results.results)
+            this.props.onSearchUpdate(results.results);
+            console.log("Before change state")
+            this.props.changeState()
+            console.log("After change state")
         }
         catch (error) {
             console.log("didn't work!")
             console.log(error)
         }
     
-        //*************** */
-        // api call here!
-        //.then
-        //.then
         // call the prop (showRecipes(dataFromAPICall))
         // if it doesn't auto-refresh, create local state and put it in there too.
         // ...because this.setState() will trigger a re-render.
@@ -128,8 +119,10 @@ let mapDispatchToProps = (dispatch) => {
     }
 }
 
-let mapStateToProps = () =>{
-
+let mapStateToProps = (state) =>{
+    return {
+        searchResults: state.searchResults
+    }
 }
 
-export default connect(null, mapDispatchToProps)(SearchInputs)
+export default connect(mapStateToProps, mapDispatchToProps)(SearchInputs)
