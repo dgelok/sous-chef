@@ -20,20 +20,54 @@ const SearchInputs = () => {
                     <Form.Label>Select Cuisine</Form.Label>
                     <Form.Control as="select" size="sm" custom>
                     <option>any</option>
+                    <option>African</option>
+                    <option>American</option>
+                    <option>British</option>
+                    <option>Cajun</option>
+                    <option>Carribean</option>
+                    <option>Chinese</option>
+                    <option>Eastern European</option>
+                    <option>European</option>
+                    <option>French</option>
+                    <option>German</option>
+                    <option>Greek</option>
+                    <option>Indian</option>
+                    <option>Irish</option>
                     <option>Italian</option>
-                    <option>Mexican</option>
                     <option>Japanese</option>
-                    <option>Vegetarian</option>
+                    <option>Jewish</option>
+                    <option>Korean</option>
+                    <option>Latin American</option>
+                    <option>Mediterranean</option>
+                    <option>Mexican</option>
+                    <option>Middle Eastern</option>
+                    <option>Nordic</option>
+                    <option>Southern</option>
+                    <option>Spanish</option>
+                    <option>Thai</option>
+                    <option>Vietnamese</option>
                     </Form.Control>
                 </Form.Group>
                 <Form.Group className="m-1" controlId="type">
                     <Form.Label>Select Type</Form.Label>
                     <Form.Control as="select" size="sm" custom>
                     <option>any</option>
+                    <option>Main Course</option>
+                    <option>Side Dish</option>
+                    <option>Dessert</option>
+                    <option>Appetizer</option>
+                    <option>Salad</option>
+                    <option>Bread</option>
                     <option>Breakfast</option>
                     <option>Soup</option>
-                    <option>Dessert</option>
-                    <option>Main Course</option>
+                    <option>Beverage</option>
+                    <option>Sauce</option>
+                    <option>Marinade</option>
+                    <option>Fingerfood</option>
+                    <option>Snack</option>
+                    <option>Drink</option>
+                    
+                    
                     </Form.Control>
                 </Form.Group>
                 <Form.Group className="m-1" controlId="keywords">
