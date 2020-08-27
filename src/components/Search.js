@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
 import SearchInputs from './SearchInputs'
 import SearchResults from './SearchResults'
-import {Container} from 'react-bootstrap'
+import {Container, Row} from 'react-bootstrap'
 import APIkey from "../APIkeys"
+import data from '../utils/data'
 
 
 class Search extends Component {
@@ -12,7 +13,8 @@ class Search extends Component {
         this.state = {
             cuisineType: "",
             searchTerms: "",
-            mealType: ""
+            mealType: "",
+            searchResults: []
         };
       }
     
@@ -44,8 +46,9 @@ class Search extends Component {
             <br />
             <br />
             <br />
-            <SearchResults/>
-            
+            <Row>
+                <SearchResults recipes={data}/>
+            </Row>
         </Container>
       </>
     )

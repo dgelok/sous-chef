@@ -1,9 +1,19 @@
 import React from 'react'
+import RecipeCard from './RecipeCard'
+import data from '../utils/data'
 
-const SearchResults = () => {
-  return (
+const SearchResults = (props) => {
+    
+    let myCards = data.map((r, index) =>{
+        return <RecipeCard key={index} recipe={r}/>
+
+    })
+    
+
+    return (
     <>
-      (search results will go here)
+      {myCards}
+
     </>
   )
 }

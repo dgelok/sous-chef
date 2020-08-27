@@ -15,7 +15,7 @@ let reducer = (state=initialState, action) =>{
             return {
                 ...state,
                 recipes: state.recipes.filter(n =>{
-                    return n.id != action.dropRecipe.id
+                    return n.id !== action.dropRecipe.id
                 })
             };
         default :
