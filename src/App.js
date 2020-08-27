@@ -1,9 +1,8 @@
 import React from 'react'
 import './App.css'
 import { Link } from 'react-router-dom'
-import APIkey from "./APIkeys"
 
-console.log(APIkey)
+
 const App = () => {
   return (
     <>
