@@ -20,7 +20,7 @@ let reducer = (state=initialState, action) =>{
         case "UPDATE_SEARCH_RESULTS" :
             return {
                 ...state,
-                searchResults: action.recipes
+                searchResults: [...action.recipes]
             }
         default :
             return state

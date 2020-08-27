@@ -1,130 +1,135 @@
-import React from 'react'
+import React, { Component } from 'react'
 import {Form, FormControl, Input, Dropdown, Col, InputGroup, Button} from 'react-bootstrap'
+import APIkey from "../APIkeys"
+import { connect } from 'react-redux'
+import {updateSearchResults} from '../actions/actions'
 
+class SearchInputs extends Component {
 
-const SearchInputs = () => {
+    constructor(props) {
+      super(props)
+    
+      this.state = {
+         count: 0
+      }
+    }
+    
+    // mapDispatchToProps(dispatch): 
+    // returns an object. It'll have a prop that must be dispatched.
+    // map dispatch of whatever updates global state.
 
-    let handleClick = (e) =>{
+    // mapStateToProps()
+
+    // can use async before e!
+    handleClick = async (e) =>{
         e.preventDefault();
+        // let thing = await fetch(thing)
         console.log(e.target.cuisine.value)
         console.log(e.target.type.value)
         console.log(e.target.keywords.value)
+
+        let URL = `https://api.spoonacular.com/recipes/complexSearch?apiKey=${APIkey}&cuisine=${e.target.cuisine.value}&query=${e.target.keywords.value}`
+        try {
+            let response = await fetch(URL);
+            let results = await response.json()
+            console.log(results.results)
+            this.props.onSearchUpdate(results.results)
+        }
+        catch (error) {
+            console.log("didn't work!")
+            console.log(error)
+        }
+    
+        //*************** */
+        // api call here!
+        //.then
+        //.then
+        // call the prop (showRecipes(dataFromAPICall))
+        // if it doesn't auto-refresh, create local state and put it in there too.
+        // ...because this.setState() will trigger a re-render.
     }
-
-    return (
-        <>
-        <Form onSubmit={handleClick}>
-            <Form.Row className="align-items-center m-2">
-
-                <Form.Group className="m-1" controlId="cuisine">
-                    <Form.Label>Select Cuisine</Form.Label>
-                    <Form.Control as="select" size="sm" custom>
-                    <option>any</option>
-                    <option>African</option>
-                    <option>American</option>
-                    <option>British</option>
-                    <option>Cajun</option>
-                    <option>Carribean</option>
-                    <option>Chinese</option>
-                    <option>Eastern European</option>
-                    <option>European</option>
-                    <option>French</option>
-                    <option>German</option>
-                    <option>Greek</option>
-                    <option>Indian</option>
-                    <option>Irish</option>
-                    <option>Italian</option>
-                    <option>Japanese</option>
-                    <option>Jewish</option>
-                    <option>Korean</option>
-                    <option>Latin American</option>
-                    <option>Mediterranean</option>
-                    <option>Mexican</option>
-                    <option>Middle Eastern</option>
-                    <option>Nordic</option>
-                    <option>Southern</option>
-                    <option>Spanish</option>
-                    <option>Thai</option>
-                    <option>Vietnamese</option>
-                    </Form.Control>
-                </Form.Group>
-                <Form.Group className="m-1" controlId="type">
-                    <Form.Label>Select Type</Form.Label>
-                    <Form.Control as="select" size="sm" custom>
-                    <option>any</option>
-                    <option>Main Course</option>
-                    <option>Side Dish</option>
-                    <option>Dessert</option>
-                    <option>Appetizer</option>
-                    <option>Salad</option>
-                    <option>Bread</option>
-                    <option>Breakfast</option>
-                    <option>Soup</option>
-                    <option>Beverage</option>
-                    <option>Sauce</option>
-                    <option>Marinade</option>
-                    <option>Fingerfood</option>
-                    <option>Snack</option>
-                    <option>Drink</option>
+    render() {
+        return (
+            <>
+            <Form onSubmit={this.handleClick}>
+                <Form.Row className="align-items-center m-2">
+                    <Form.Group className="m-1" controlId="cuisine">
+                        <Form.Label>Select Cuisine</Form.Label>
+                        <Form.Control as="select" size="sm" custom>
+                        <option>any</option>
+                        <option>African</option>
+                        <option>American</option>
+                        <option>British</option>
+                        <option>Cajun</option>
+                        <option>Carribean</option>
+                        <option>Chinese</option>
+                        <option>Eastern European</option>
+                        <option>European</option>
+                        <option>French</option>
+                        <option>German</option>
+                        <option>Greek</option>
+                        <option>Indian</option>
+                        <option>Irish</option>
+                        <option>Italian</option>
+                        <option>Japanese</option>
+                        <option>Jewish</option>
+                        <option>Korean</option>
+                        <option>Latin American</option>
+                        <option>Mediterranean</option>
+                        <option>Mexican</option>
+                        <option>Middle Eastern</option>
+                        <option>Nordic</option>
+                        <option>Southern</option>
+                        <option>Spanish</option>
+                        <option>Thai</option>
+                        <option>Vietnamese</option>
+                        </Form.Control>
+                    </Form.Group>
+                    <Form.Group className="m-1" controlId="type">
+                        <Form.Label>Select Type</Form.Label>
+                        <Form.Control as="select" size="sm" custom>
+                        <option>any</option>
+                        <option>Main Course</option>
+                        <option>Side Dish</option>
+                        <option>Dessert</option>
+                        <option>Appetizer</option>
+                        <option>Salad</option>
+                        <option>Bread</option>
+                        <option>Breakfast</option>
+                        <option>Soup</option>
+                        <option>Beverage</option>
+                        <option>Sauce</option>
+                        <option>Marinade</option>
+                        <option>Fingerfood</option>
+                        <option>Snack</option>
+                        <option>Drink</option>
+                        
+                        
+                        </Form.Control>
+                    </Form.Group>
+                    <Form.Group className="m-1" controlId="keywords">
+                        <Form.Label>Search Terms</Form.Label>
+                        <Form.Control size="sm" type="text" placeholder="any" />
+                    </Form.Group>
                     
-                    
-                    </Form.Control>
-                </Form.Group>
-                <Form.Group className="m-1" controlId="keywords">
-                    <Form.Label>Search Terms</Form.Label>
-                    <Form.Control size="sm" type="text" placeholder="any" />
-                </Form.Group>
-                
-                <Button type="submit" className="mt-4 ml-1">
-                    Submit
-                </Button>
-                
-                {/* <Col xs="auto">
-                <label for="exampleFormControlSelect1">Select Type</label>
-                <select class="form-control" id="exampleFormControlSelect1">
-                    <option>Breakfast</option>
-                    <option>Soup</option>
-                    <option>Dessert</option>
-                    <option>Beverage</option>
-                    <option>Main Course</option>
-                </select>
-                </Col> */}
-
-
-                {/* <Dropdown className="m-1">
-                    <Dropdown.Toggle variant="success" id="dropdown-basic">
-                        Choose Cuisine Type
-                    </Dropdown.Toggle>
-
-                    <Dropdown.Menu id="cuisine">
-                        <Dropdown.Item href="#/action-1">Italian</Dropdown.Item>
-                        <Dropdown.Item href="#/action-2">Greek</Dropdown.Item>
-                        <Dropdown.Item href="#/action-3">Mexican</Dropdown.Item>
-                        <Dropdown.Item href="#/action-4">Japanese</Dropdown.Item>
-                        <Dropdown.Item href="#/action-5">Thai</Dropdown.Item>
-                        <Dropdown.Item href="#/action-6">Other</Dropdown.Item>
-                    </Dropdown.Menu>
-                </Dropdown> */}
-                
-                {/* <Dropdown className="m-1">
-                    <Dropdown.Toggle variant="success" id="dropdown-basic">
-                        Choose Menu Type
-                    </Dropdown.Toggle>
-
-                    <Dropdown.Menu id="Type">
-                        <Dropdown.Item href="#/action-1">Breakfast</Dropdown.Item>
-                        <Dropdown.Item href="#/action-2">Soup</Dropdown.Item>
-                        <Dropdown.Item href="#/action-3">Dessert</Dropdown.Item>
-                        <Dropdown.Item href="#/action-4">Beverage</Dropdown.Item>
-                        <Dropdown.Item href="#/action-5">Snack</Dropdown.Item>
-                        <Dropdown.Item href="#/action-6">Main Course</Dropdown.Item>
-                    </Dropdown.Menu>
-                </Dropdown> */}
-                
-            </Form.Row>
-        </Form>
-        </>
-  )
+                    <Button type="submit" className="mt-4 ml-1">
+                        Submit
+                    </Button>
+                </Form.Row>
+            </Form>
+            </>
+        )
+    }
 }
 
-export default SearchInputs
+let mapDispatchToProps = (dispatch) => {
+    return {
+        onSearchUpdate: (recipes)=>dispatch(updateSearchResults(recipes))
+    }
+}
+
+let mapStateToProps = () =>{
+
+}
+
+export default connect(null, mapDispatchToProps)(SearchInputs)
