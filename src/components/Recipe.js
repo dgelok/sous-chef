@@ -28,14 +28,18 @@ const Recipe = () => {
 
       <Row>
         <Col>
-          {myRecipe.instructions}
+          <ol>
+            {myRecipe.analyzedInstructions[0].steps.map((s, index)=>{
+              return <li key={index}>{s.step}</li>
+            })}
+          </ol>
         </Col>
         <Col>
-        <ul>
-          <li>ingredient here</li>
-          <li>ingredient here</li>
-          <li>ingredient here</li>
-        </ul>
+          <ul>
+            {myRecipe.extendedIngredients.map((r, index) =>{
+              return <li key={index}>{r.amount} {r.unit} {r.name}</li>
+            })}
+          </ul>
         </Col>
       </Row>
 
