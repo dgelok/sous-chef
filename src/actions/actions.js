@@ -6,7 +6,7 @@ export let addRecipeToShopping = (recipe) =>{
     }
 }
 
-export let deleteRecipeToShopping = (recipe) =>{
+export let deleteRecipeFromShopping = (recipe) =>{
     return {
         type: "DELETE_RECIPE_FROM_SHOPPING",
         recipe: recipe
