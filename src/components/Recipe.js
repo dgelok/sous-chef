@@ -1,10 +1,20 @@
 import React from 'react'
+import {Jumbotron, Button} from 'react-bootstrap'
 
-const Recipe = () => {
+const Recipe = (props) => {
   return (
     <>
-      <h3>Individual recpies go here</h3>
-    </>
+      
+      <Jumbotron>
+        <h1>Title</h1>
+        <p>
+          description
+        </p>
+        <p>
+          <Button variant="primary">Add to Shopping List</Button>
+        </p>
+      </Jumbotron>
+          </>
   )
 }
 

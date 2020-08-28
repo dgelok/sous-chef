@@ -1,7 +1,10 @@
 const initialState = {
     searchResults: [],
-    shoppingList: []
+    shoppingList: [],
+    individualRecipe: {}
 }
+// input form
+// counter
 
 let reducer = (state=initialState, action) =>{
     switch (action.type) {
@@ -21,6 +24,11 @@ let reducer = (state=initialState, action) =>{
             return {
                 ...state,
                 searchResults: [...action.recipes]
+            }
+        case "SET_INDIVIDUAL_RECIPE" :
+            return {
+                ...state,
+                individualRecipe: action.recipe
             }
         default :
             return state

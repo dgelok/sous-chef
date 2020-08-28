@@ -11,9 +11,7 @@ class Search extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            cuisineType: "",
-            searchTerms: "",
-            mealType: "",
+            individualRecipe: {},
             searchResults: [],
             loading: true
         };

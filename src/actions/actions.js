@@ -19,3 +19,10 @@ export let updateSearchResults = (recipes) =>{
         recipes: recipes
     }
 }
+
+export let setIndividualRecipe = (recipe) =>{
+    return {
+        type: "SET_INDIVIDUAL_RECIPE",
+        recipe: recipe
+    }
+}
