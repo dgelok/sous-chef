@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import {Form, FormControl, Input, Dropdown, Col, InputGroup, Button} from 'react-bootstrap'
+import {Form, Button} from 'react-bootstrap'
 import APIkey from "../APIkeys"
 import { connect } from 'react-redux'
 import {updateSearchResults} from '../actions/actions'

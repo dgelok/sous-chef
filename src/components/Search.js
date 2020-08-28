@@ -2,8 +2,8 @@ import React, { Component } from 'react'
 import SearchInputs from './SearchInputs'
 import SearchResults from './SearchResults'
 import {Container, Row} from 'react-bootstrap'
-import APIkey from "../APIkeys"
-import data from '../utils/data'
+// import APIkey from "../APIkeys"
+// import data from '../utils/data'
 import {connect} from 'react-redux'
 
 class Search extends Component {

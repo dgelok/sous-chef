@@ -28,7 +28,7 @@ const Recipe = () => {
       <Jumbotron className="">
         <h1>{myRecipe.title}</h1>
         <br />
-        <img src={myRecipe.image} />
+        <img src={myRecipe.image} alt="pic of the recipe"/>
         <p>
           <Button className="m-2" variant="primary" onClick={handleClick}>Add to Shopping List</Button>
         </p>
