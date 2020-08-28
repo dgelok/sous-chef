@@ -1,11 +1,20 @@
 import React from 'react'
 import {useSelector} from 'react-redux'
 import {Jumbotron, Button, Row, Col} from 'react-bootstrap'
+import {useDispatch} from 'react-redux'
+import {addRecipeToShopping} from '../actions/actions'
+
 
 const Recipe = () => {
 
+  let dispatch = useDispatch()
+
+  let handleClick = () =>{
+    dispatch(addRecipeToShopping(myRecipe))
+  }
   const myRecipe = useSelector(state => state.individualRecipe)
   
+  //stole this from StackOverflow -- converts API string into valid HTML.
   const renderHTMLContent = (htmlContent) =>
   React.createElement('div', {
     dangerouslySetInnerHTML: { __html: htmlContent},
@@ -21,7 +30,7 @@ const Recipe = () => {
         <br />
         <img src={myRecipe.image} />
         <p>
-          <Button className="m-2" variant="primary">Add to Shopping List</Button>
+          <Button className="m-2" variant="primary" onClick={handleClick}>Add to Shopping List</Button>
         </p>
         {summary}
       </Jumbotron>

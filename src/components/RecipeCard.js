@@ -3,9 +3,10 @@ import {Card, Button} from 'react-bootstrap';
 import APIkey from '../APIkeys';
 // import {useHistory} from 'react-router';
 // import { withRouter } from "react-router-dom";
-import {useDispatch} from 'react-redux'
 import {setIndividualRecipe} from '../actions/actions'
 import {Redirect} from 'react-router-dom'
+import {useDispatch} from 'react-redux'
+import {addRecipeToShopping} from '../actions/actions'
 
 const RecipeCard = (props) => {
 
@@ -14,9 +15,22 @@ const RecipeCard = (props) => {
     let dispatch = useDispatch()
     // let history = useHistory()
 
-    let handleSubmit = (e) =>{
+    let addRecipe = async (e) =>{
         e.preventDefault();
-        console.log("A card button was clicked")
+        let URL = `https://api.spoonacular.com/recipes/${props.recipe.id}/information?apiKey=${APIkey}`
+        try {
+            let response = await fetch(URL);
+            let results = await response.json()
+            console.log(results)
+            dispatch(addRecipeToShopping(results))
+            
+        }
+        catch (error) {
+            console.log("didn't work!")
+            console.log(error)
+        }
+        
+        console.log("A recipe was added to the shopping list")
     }
     
     let visitRecipe = async (e) =>{
@@ -57,7 +71,7 @@ const RecipeCard = (props) => {
                 <Card.Title>{props.recipe.title}</Card.Title>
                 {/* <Card.Subtitle>{props.recipe.price}</Card.Subtitle>
                 <Card.Text>{props.recipe.description}</Card.Text> */}
-                <Button variant="primary" className="m-1" onClick={handleSubmit}>Add to List</Button>
+                <Button variant="primary" className="m-1" onClick={addRecipe}>Add to List</Button>
                 <Button variant="secondary" className="m-1" onClick={visitRecipe}>See More</Button>
             </Card.Body>
         </Card>

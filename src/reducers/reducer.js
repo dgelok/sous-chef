@@ -30,6 +30,7 @@ let reducer = (state=initialState, action) =>{
                 ...state,
                 individualRecipe: action.recipe
             }
+            
         default :
             return state
     }
