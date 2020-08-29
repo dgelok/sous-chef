@@ -20,7 +20,7 @@ class SearchInputs extends Component {
         // console.log(e.target.type.value)
         // console.log(e.target.keywords.value)
 
-        let URL = `https://api.spoonacular.com/recipes/complexSearch?apiKey=${APIkey}&cuisine=${e.target.cuisine.value}&number=50&query=${e.target.keywords.value}`
+        let URL = `https://api.spoonacular.com/recipes/complexSearch?apiKey=${APIkey}&cuisine=${e.target.cuisine.value}&type=${e.target.type.value}&number=50&query=${e.target.keywords.value}`
         try {
             let response = await fetch(URL);
             let results = await response.json()

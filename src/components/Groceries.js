@@ -2,12 +2,13 @@ import React from 'react'
 import {useSelector} from 'react-redux'
 import {Row} from 'react-bootstrap'
 import GroceryCard from './GroceryCard'
-
+import {ingredientsParser} from '../utils/ingredientsParser.js'
 
 
 const Groceries = () => {
 
-  const myGroceries = useSelector(state => state.shoppingList)
+  const myGroceries = useSelector(state => state.shoppingList);
+  const myIngredients = ingredientsParser(myGroceries);
 
   const ingredientlist = myGroceries.map(r =>{
     return r.extendedIngredients.map((i, index) =>{
