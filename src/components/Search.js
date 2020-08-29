@@ -4,6 +4,8 @@ import SearchResults from './SearchResults'
 import {Container, Row} from 'react-bootstrap'
 // import APIkey from "../APIkeys"
 // import data from '../utils/data'
+import '../App.css'
+
 import {connect} from 'react-redux'
 
 class Search extends Component {
@@ -29,7 +31,7 @@ class Search extends Component {
     return (
       <>
         <Container>
-            <h3 className="m-5">Here's the search page</h3>
+            <h3 className="m-5">Search through over 380,000 recipes</h3>
             <SearchInputs changeState={this.changeState}/>
             <br />
             <br />

@@ -72,7 +72,7 @@ const RecipeCard = (props) => {
                 {/* <Card.Subtitle>{props.recipe.price}</Card.Subtitle>
                 <Card.Text>{props.recipe.description}</Card.Text> */}
                 <Button variant="primary" className="m-1" onClick={addRecipe}>Add to List</Button>
-                <Button variant="secondary" className="m-1" onClick={visitRecipe}>See More</Button>
+                <Button variant="secondary" className="m-1" onClick={visitRecipe}>More Info</Button>
             </Card.Body>
         </Card>
     </>

@@ -10,7 +10,7 @@ const App = () => {
         <div className="hero-text">
           <h1 style={{fontSize:"50px"}}>Welcome to SousChef!</h1>
           <h5>Your personalized shopping and meal-prep manager</h5>
-          <Link to="/Search"><button>Find Recipes</button></Link>
+          <Link to="/Search"><button>Get Started</button></Link>
           
         </div>
       </div>
