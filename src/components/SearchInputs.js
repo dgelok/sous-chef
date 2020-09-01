@@ -24,11 +24,11 @@ class SearchInputs extends Component {
         try {
             let response = await fetch(URL);
             let results = await response.json()
-            console.log(results.results)
+            // console.log(results.results)
             this.props.onSearchUpdate(results.results);
-            console.log("Before change state")
+            // console.log("Before change state")
             this.props.changeState()
-            console.log("After change state")
+            // console.log("After change state")
         }
         catch (error) {
             console.log("didn't work!")

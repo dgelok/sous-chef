@@ -5,9 +5,9 @@ import RecipeCard from './RecipeCard'
 const SearchResults = (props) => {
     
     let myCards;
-    console.log(props.recipes)
+    // console.log(props.recipes)
     if (props.recipes.length === 0) {
-        myCards = "...waiting"
+        myCards = "Try it out!"
     } 
     else {
         myCards = props.recipes.map((r, index) =>{

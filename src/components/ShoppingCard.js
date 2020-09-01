@@ -5,11 +5,11 @@ import MyListItem from './MyListItem'
 const shoppingCard = (props) => {
 
   
-  console.log(props.items)
+  // console.log(props.items)
   let filteredList = props.items.filter(item =>{
     return item.isvisible
   })
-  console.log(filteredList)
+  // console.log(filteredList)
 
   let listItems = filteredList.map((item, index) =>{
     let myvar = `${item.amount} ${item.unit} ${item.name}`

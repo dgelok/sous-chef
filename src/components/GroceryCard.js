@@ -8,8 +8,8 @@ const GroceryCard = (props) => {
     let dispatch = useDispatch()
     let deleteRecipe = () =>{
         console.log('delete button pressed')
-        console.log(props.recipe.id)
-        console.log(props.recipe)
+        // console.log(props.recipe.id)
+        // console.log(props.recipe)
         dispatch(deleteRecipeFromShopping(props.recipe))
         dispatch(deleteFromIngredientsList(props.recipe))
     }

@@ -19,10 +19,10 @@ const RecipeCard = (props) => {
     let myIngredients = useSelector(state => state.ingredientsList)
     let newIngredientsParser = (recipe) =>{
       // const myIngredients = useSelector(state => state.ingredientsList)
-      console.log("so far so good")
-      console.log(recipe)
+      // console.log("so far so good")
+      // console.log(recipe)
       for (let i of recipe.extendedIngredients) {
-              console.log(i)
+              // console.log(i)
               myIngredients.push({
                   aisle: i.aisle,
                   amount: i.amount,
@@ -43,7 +43,7 @@ const RecipeCard = (props) => {
         try {
             let response = await fetch(URL);
             let results = await response.json()
-            console.log(results)
+            // console.log(results)
             dispatch(addRecipeToShopping(results))
             newIngredientsParser(results)
             // dispatch(addToIngredientsList())
@@ -59,13 +59,13 @@ const RecipeCard = (props) => {
     
     let visitRecipe = async (e) =>{
       e.preventDefault();
-      console.log("let's go see this recipe")
-      console.log(props.recipe.id)
+      // console.log("let's go see this recipe")
+      // console.log(props.recipe.id)
       let URL = `https://api.spoonacular.com/recipes/${props.recipe.id}/information?apiKey=${APIkey}`
       try {
           let response = await fetch(URL);
           let results = await response.json()
-          console.log(results)
+          // console.log(results)
           dispatch(setIndividualRecipe(results))
           
       }

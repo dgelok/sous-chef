@@ -4,7 +4,7 @@ import SearchResults from './SearchResults'
 import {Container, Row} from 'react-bootstrap'
 // import APIkey from "../APIkeys"
 // import data from '../utils/data'
-import '../App.css'
+import '../css/search.css'
 
 import {connect} from 'react-redux'
 
@@ -27,19 +27,25 @@ class Search extends Component {
     }
 
   render() {
-    console.log("ReRendering")
     return (
       <>
+      <div className='bgImage2'>
         <Container>
-            <h3 className="m-5">Search through over 380,000 recipes</h3>
+          <Row className="d-flex justify-content-center pt-3">
+            <h1 className="mb-5 display-3 pt-3">Search through 380,000+ recipes</h1>
             <SearchInputs changeState={this.changeState}/>
+          </Row>
             <br />
             <br />
             <br />
-            <Row>
-                <SearchResults recipes={this.props.searchResults}/>
-            </Row>
+          <Row className="d-flex justify-content-center">
+            <SearchResults recipes={this.props.searchResults}/>
+          </Row>
+          <Row className="d-flex justify-content-center mt-5">
+            <p>Can't find what you want? Try adding search terms, like "Chicken Breast" instead of "Chicken."</p>
+          </Row>
         </Container>
+      </div>
       </>
     )
   }

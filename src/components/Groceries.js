@@ -4,6 +4,7 @@ import {Row, Container, Button} from 'react-bootstrap'
 import GroceryCard from './GroceryCard'
 import ShoppingCard from './ShoppingCard'
 import {showIngredients} from '../actions/actions'
+import '../css/search.css'
 
 const Groceries = () => {
 
@@ -54,32 +55,46 @@ const Groceries = () => {
     return <ShoppingCard key={index} name={aisle} items={ingObj[aisle]}/>
   })
 
-
-  const cards = myGroceries.map((r, index) =>{
-    return <GroceryCard key={index} recipe={r} />
+  let cards;
+  if (myGroceries.length === 0) {
+    cards = "No recipes selected yet. Try finding some new ones and adding them to your cart!"
+  } 
+  else {
+      cards = myGroceries.map((r, index) =>{
+      return <GroceryCard key={index} recipe={r} />
   })
+}
 
-  
+//   if (props.recipes.length === 0) {
+//     myCards = "Try it out!"
+// } 
+// else {
+//     myCards = props.recipes.map((r, index) =>{
+//         return <RecipeCard key={index} recipe={r}/>
+//     })
+// }
 
   return (
     <>
+    <div className="bgImage2">
     <Container>
       <Row className="m-0 d-flex justify-content-center">
-        <h1>Planned Recipes:</h1>
+        <h1 className="display-3 p-4">Planned Recipes</h1>
       </Row>
-      <Row className="m-1">
+      <Row className="m-1 d-flex justify-content-center">
         {cards}
       </Row>
       <Row className="mt-5 d-flex justify-content-center">
-        <h1>Let's go Shopping!</h1>
+        <h1 className="display-3 p-3">Let's go Shopping!</h1>
       </Row>
-      <Row className="mt-5 d-flex justify-content-center">
-        <Button onClick={showIngredientsButton}>Show all Items</Button>
+      <Row className="mt-3 d-flex justify-content-center">
+        <Button className="m-3" onClick={showIngredientsButton}>Re-display all Items</Button>
       </Row>
-      <Row>
+      <Row className='d-flex justify-content-center'>
         {ingredientCards}
       </Row>
     </Container>
+    </div>
     </>
   )
 }
