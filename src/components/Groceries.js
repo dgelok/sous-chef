@@ -1,13 +1,15 @@
 import React from 'react'
-import {useSelector} from 'react-redux'
-import {Row, Container} from 'react-bootstrap'
+import {useSelector, useDispatch} from 'react-redux'
+import {Row, Container, Button} from 'react-bootstrap'
 import GroceryCard from './GroceryCard'
 import ShoppingCard from './ShoppingCard'
+import {showIngredients} from '../actions/actions'
 
 const Groceries = () => {
 
   const myGroceries = useSelector(state => state.shoppingList);
   const myIngredients = useSelector(state => state.ingredientsList);
+  const dispatch = useDispatch();
 
   // console.log(myIngredients)
   let ingObj = {}
@@ -18,7 +20,9 @@ const Groceries = () => {
         amount: item.amount,
         unit: item.unit,
         name: item.name,
-        id: item.id
+        id: item.id,
+        isvisible: item.isvisible,
+        uuid: item.uuid
     }]
     }
     else {
@@ -26,11 +30,17 @@ const Groceries = () => {
         amount: item.amount,
         unit: item.unit,
         name: item.name,
-        id: item.id
+        id: item.id,
+        isvisible: item.isvisible,
+        uuid: item.uuid
     })
     }
   }
 
+  let showIngredientsButton = (e) =>{
+    e.preventDefault();
+    dispatch(showIngredients())
+  }
   // ingObj is now an object with keys (aisles) and values (array of ingredients)
   // console.log(ingObj)
   let myKeys = Object.keys(ingObj);
@@ -62,6 +72,9 @@ const Groceries = () => {
       </Row>
       <Row className="mt-5 d-flex justify-content-center">
         <h1>Let's go Shopping!</h1>
+      </Row>
+      <Row className="mt-5 d-flex justify-content-center">
+        <Button onClick={showIngredientsButton}>Show all Items</Button>
       </Row>
       <Row>
         {ingredientCards}

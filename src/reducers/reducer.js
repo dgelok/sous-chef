@@ -44,7 +44,26 @@ let reducer = (state=initialState, action) =>{
                     return n.id !== action.recipe.id
                 })
             }
+        case "HIDE_INGREDIENT" :
+            let newIngredients = state.ingredientsList.map(n =>{
+                if (n.uuid === action.uuid) {
+                    n.isvisible = false
+                }
+                return n
+            })
+            return {
+                ...state,
+                ingredientsList: newIngredients
+            }
             
+        case "SHOW_INGREDIENTS" :
+            return {
+                ...state,
+                ingredientsList: state.ingredientsList.map(n =>{
+                    n.isvisible = true;
+                    return n
+                })
+            }
         default :
             return state
     }

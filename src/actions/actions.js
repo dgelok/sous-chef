@@ -40,3 +40,16 @@ export let setIndividualRecipe = (recipe) =>{
         recipe: recipe
     }
 }
+
+export let hideIngredient = (uuid) =>{
+    return {
+        type: "HIDE_INGREDIENT",
+        uuid: uuid
+    }
+}
+
+export let showIngredients = () =>{
+    return {
+        type: "SHOW_INGREDIENTS",
+    }
+}

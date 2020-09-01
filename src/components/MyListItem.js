@@ -1,12 +1,16 @@
 import React from 'react'
 import {Form, Button} from 'react-bootstrap'
+import {useDispatch} from 'react-redux'
+import {hideIngredient} from '../actions/actions'
 
 const MyListItem = (props) => {
 
+  let dispatch = useDispatch()
     // console.log(props)
     let handleClick = (e) =>{
         e.preventDefault();
-        console.log(e.target.recipeid)
+        console.log(props.uuid)
+        dispatch(hideIngredient(props.uuid))
     }
   return (
     <>

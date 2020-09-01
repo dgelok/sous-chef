@@ -7,6 +7,7 @@ import {setIndividualRecipe} from '../actions/actions'
 import {Redirect} from 'react-router-dom'
 import {useDispatch, useSelector} from 'react-redux'
 import {addRecipeToShopping, addToIngredientsList} from '../actions/actions'
+import {v1 as uuidv1} from 'uuid'
 
 const RecipeCard = (props) => {
 
@@ -27,7 +28,9 @@ const RecipeCard = (props) => {
                   amount: i.amount,
                   unit: i.unit,
                   name: i.name,
-                  id: recipe.id
+                  id: recipe.id,
+                  isvisible: true,
+                  uuid: uuidv1()
               })
         }
       dispatch(addToIngredientsList(myIngredients))
