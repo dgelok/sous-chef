@@ -1,6 +1,6 @@
 import React from 'react'
 import {Card, Button} from 'react-bootstrap'
-import {deleteRecipeFromShopping} from '../actions/actions'
+import {deleteRecipeFromShopping, deleteFromIngredientsList} from '../actions/actions'
 import {useDispatch} from 'react-redux'
 
 
@@ -9,7 +9,9 @@ const GroceryCard = (props) => {
     let deleteRecipe = () =>{
         console.log('delete button pressed')
         console.log(props.recipe.id)
+        console.log(props.recipe)
         dispatch(deleteRecipeFromShopping(props.recipe))
+        dispatch(deleteFromIngredientsList(props.recipe))
     }
   return (
     <>

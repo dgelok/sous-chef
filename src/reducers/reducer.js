@@ -36,6 +36,14 @@ let reducer = (state=initialState, action) =>{
                 ...state,
                 ingredientsList: action.ingredients
             }
+        case "DELETE_FROM_INGREDIENTS_LIST" :
+            // do stuff
+            return {
+                ...state,
+                ingredientsList: state.ingredientsList.filter(n =>{
+                    return n.id !== action.recipe.id
+                })
+            }
             
         default :
             return state
