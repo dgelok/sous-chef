@@ -13,6 +13,13 @@ export let deleteRecipeFromShopping = (recipe) =>{
     }
 }
 
+export let addToIngredientsList = (ingredients) =>{
+    return {
+        type: "ADD_TO_INGREDIENTS_LIST",
+        ingredients: ingredients
+    }
+}
+
 export let updateSearchResults = (recipes) =>{
     return {
         type: "UPDATE_SEARCH_RESULTS",

@@ -1,7 +1,8 @@
 const initialState = {
     searchResults: [],
     shoppingList: [],
-    individualRecipe: {}
+    individualRecipe: {},
+    ingredientsList: []
 }
 // input form
 // counter
@@ -29,6 +30,11 @@ let reducer = (state=initialState, action) =>{
             return {
                 ...state,
                 individualRecipe: action.recipe
+            }
+        case "ADD_TO_INGREDIENTS_LIST" :
+            return {
+                ...state,
+                ingredientsList: action.ingredients
             }
             
         default :

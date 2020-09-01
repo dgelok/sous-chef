@@ -1,5 +1,27 @@
 
 
+export let newIngredientsParser = (recipe) =>{
+    let newIngredients = {}
+    for (let i in recipe.extendedIngredients) {
+        if (newIngredients[i.aisle] === undefined) {
+            newIngredients[i.aisle] = [{
+                amount: i.amount,
+                unit: i.unit,
+                name: i.name,
+                id: i.id
+            }]
+        }
+        else {
+            newIngredients[i.aisle].push({
+                amount: i.amount,
+                unit: i.unit,
+                name: i.name,
+                id: i.id
+            })
+        }
+    }
+}
+
 export let ingredientsParser = (groceries) =>{
     console.log(groceries)
     let rawList = []

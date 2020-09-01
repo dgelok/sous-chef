@@ -2,15 +2,34 @@ import React from 'react'
 import {useSelector} from 'react-redux'
 import {Jumbotron, Button, Row, Col} from 'react-bootstrap'
 import {useDispatch} from 'react-redux'
-import {addRecipeToShopping} from '../actions/actions'
+import {addRecipeToShopping, addToIngredientsList} from '../actions/actions'
 
 
 const Recipe = () => {
 
+
   let dispatch = useDispatch()
+  let myIngredients = useSelector(state => state.ingredientsList)
+  let newIngredientsParser = (recipe) =>{
+    // const myIngredients = useSelector(state => state.ingredientsList)
+    console.log("so far so good")
+    console.log(recipe)
+    for (let i of recipe.extendedIngredients) {
+            console.log(i)
+            myIngredients.push({
+                aisle: i.aisle,
+                amount: i.amount,
+                unit: i.unit,
+                name: i.name,
+                id: recipe.id
+            })
+      }
+    dispatch(addToIngredientsList(myIngredients))
+  }
 
   let handleClick = () =>{
     dispatch(addRecipeToShopping(myRecipe))
+    newIngredientsParser(myRecipe)
   }
   const myRecipe = useSelector(state => state.individualRecipe)
   
