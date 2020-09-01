@@ -32,10 +32,10 @@ const Groceries = () => {
   }
 
   // ingObj is now an object with keys (aisles) and values (array of ingredients)
-  console.log(ingObj)
+  // console.log(ingObj)
   let myKeys = Object.keys(ingObj);
   // myKeys is now an array of aisle names 
-  console.log(myKeys)
+  // console.log(myKeys)
   
   // let results = Object.keys(ingObj).map((thing, index) =>{
   //   return <ShoppingCard value={thing}/>
