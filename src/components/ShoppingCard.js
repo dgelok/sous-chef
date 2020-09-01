@@ -4,12 +4,13 @@ import MyListItem from './MyListItem'
 
 const shoppingCard = (props) => {
 
-    console.log(props)
+  
   
 
-  // console.log(props.values)
-  // let myList = props.values.map((item, index) =>{
-  // return  <MyListItem key={index} myid={index} item={item} /> 
+  let listItems = props.items.map((item, index) =>{
+    let myvar = `${item.amount} ${item.unit} ${item.name}`
+    return <MyListItem key={index} id={item.id} text={myvar}/>
+  })
 
   
         // <li key={index} className="d-flex justify-content-between">
@@ -21,13 +22,14 @@ const shoppingCard = (props) => {
         // </li>
     // })
   return (
+    
     <>
       <Card className="m-1 col-5">
         <Card.Body>
           <Card.Title><h4>{props.name}</h4></Card.Title>
           <ListGroup variant="flush" className="d-flex justify-content-between">
-            {/* {myList}  */}
-            List Items go here
+            
+            {listItems}
           </ListGroup>
         </Card.Body>
       </Card>

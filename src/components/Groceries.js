@@ -40,6 +40,9 @@ const Groceries = () => {
   // let results = Object.keys(ingObj).map((thing, index) =>{
   //   return <ShoppingCard value={thing}/>
   // })
+  const ingredientCards = myKeys.map((aisle, index) =>{
+    return <ShoppingCard key={index} name={aisle} items={ingObj[aisle]}/>
+  })
 
 
   const cards = myGroceries.map((r, index) =>{
@@ -61,7 +64,7 @@ const Groceries = () => {
         <h1>Let's go Shopping!</h1>
       </Row>
       <Row>
-        Individual ingredients, organize by aisles (in ShoppingCard format) go here
+        {ingredientCards}
       </Row>
     </Container>
     </>

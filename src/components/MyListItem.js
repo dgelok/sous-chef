@@ -6,17 +6,17 @@ const MyListItem = (props) => {
     // console.log(props)
     let handleClick = (e) =>{
         e.preventDefault();
-        console.log(e.target.dataset.myid)
+        console.log(e.target)
     }
   return (
     <>
     
     <li className="d-flex justify-content-between">
         
-          <div className="m-1">{props.item}</div>
+          <div className="m-1">{props.text}</div>
           <div>
-          <button onClick={handleClick}>Edit</button>
-          <button data-myid={props.myid} onClick={handleClick}>X</button>
+          {/* <button onClick={handleClick}>Edit</button> */}
+          <button onClick={handleClick}>X</button>
           </div>
         
     </li>
