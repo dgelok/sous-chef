@@ -20,7 +20,7 @@ const MyListItem = (props) => {
           <div className="m-1">{props.text}</div>
           <div>
           {/* <button onClick={handleClick}>Edit</button> */}
-          <Button type="submit" recipeid={props.id} onClick={handleClick}>X</Button>
+          <button type="button" recipeid={props.id} onClick={handleClick}>X</button>
           </div>
         
     </Form>

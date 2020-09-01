@@ -41,6 +41,17 @@ const Recipe = () => {
 
   let summary = renderHTMLContent(myRecipe.summary)
 
+  
+  
+  let steps = () =>{
+      myRecipe.analyzedInstructions[0].steps.map((s, index)=>{
+      return <li key={index}>{s.step}</li>
+    })
+  }
+
+  let mysteps = steps()
+    
+  
   return (
     <>
       
@@ -57,9 +68,11 @@ const Recipe = () => {
       <Row>
         <Col>
           <ol>
-            {myRecipe.analyzedInstructions[0].steps.map((s, index)=>{
-              return <li key={index}>{s.step}</li>
-            })}
+            
+          {myRecipe.analyzedInstructions[0].steps.map((s, index)=>{
+            return <li key={index}>{s.step}</li>
+          })}
+            
           </ol>
         </Col>
         <Col>
