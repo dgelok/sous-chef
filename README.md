@@ -3,10 +3,15 @@
 
 SousChef is your personalized recipe planning and shopping assistant! Search through over 380,000 different recipes, pick the ones you want to create, and SousChef will give you an itemized shopping list, ordered by grocery aisle.
 
-SousChef was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+SousChef was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).   
+
 
 
 <img src="public/demo.gif">
+  
+  
+    
+     
 
 ## How it works:
 
@@ -17,8 +22,9 @@ State stores the most recent search results, a list of recipes (selected by the 
 Design is enabled utilizing a combination of CSS and Bootstrap. 
 
 
-<br />
+
 ## Tools used in the project:
+
 #### Languages:
 <ul>
     <li>HTML</li>
@@ -48,15 +54,28 @@ Design is enabled utilizing a combination of CSS and Bootstrap.
 </ul>
 
 #### APIs 
-
-Spoonacular API - https://spoonacular.com/food-api
-
+<ul>
+    <li>Spoonacular API - https://spoonacular.com/food-api</li>
+</ul>
 
 ## Goals
 
 #### Base Goals
+<ul>
+    <li>Gain familiarity with Redux</li>
+    <li>Grow in familiarity with React</li>
+    <li>Use bootstrap and react-bootstrap for layout and UI</li>
+    <li>Users can search recipes, refining searches by keyword, cusine, and type of dish</li>
+    <li>Users can save favorited recipes</li>
+    <li>Users are given an organized grocery list</li>
+</ul>
 
 #### Stretch Goals Completed
+
+<ul>
+    <li>Grocery list can delete items that users do not need, or restore all items if needed</li>
+    <li>Grocery list is organized by aisle</li>
+</ul>
 
 #### Future Goals 
 
