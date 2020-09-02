@@ -4,6 +4,7 @@ import {Jumbotron, Button, Row, Col} from 'react-bootstrap'
 import {useDispatch} from 'react-redux'
 import {addRecipeToShopping, addToIngredientsList} from '../actions/actions'
 import '../css/search.css'
+import {v1 as uuidv1} from 'uuid'
 
 
 const Recipe = () => {
@@ -18,12 +19,14 @@ const Recipe = () => {
     for (let i of recipe.extendedIngredients) {
             // console.log(i)
             myIngredients.push({
-                aisle: i.aisle,
-                amount: i.amount,
-                unit: i.unit,
-                name: i.name,
-                id: recipe.id
-            })
+              aisle: i.aisle,
+              amount: i.amount,
+              unit: i.unit,
+              name: i.name,
+              id: recipe.id,
+              isvisible: true,
+              uuid: uuidv1()
+          })
       }
     dispatch(addToIngredientsList(myIngredients))
   }
