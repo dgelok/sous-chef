@@ -79,6 +79,13 @@ Design is enabled utilizing a combination of CSS and Bootstrap.
 
 #### Future Goals 
 
+<ul>
+    <li>Users can create their own recipes</li>
+    <li>Users can store and update their pantry contents (ingredients they already have)</li>
+    <li>Grocery list automatically adds similar ingredients together (1 tbsp soy sauce + 1 tbsp soy sauce will render as 2 tbsp soy sauce on grocery page)</li>
+    <li>Irrelevant items (water, etc) are automatically removed from groceries, as are irrelevent measurements (1 dash pepper)</li>
+</ul>
+
 ## Challenges and Solutions
 
 ## Code Snippets
