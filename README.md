@@ -29,7 +29,7 @@ Design is enabled utilizing a combination of CSS and Bootstrap.
 <ul>
     <li>HTML</li>
     <li>CSS</li>
-    <li>JavaScript (via Node.js)</li>
+    <li>JavaScript</li>
     <li>XML</li>
 </ul>
 
