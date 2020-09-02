@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import {useSelector} from 'react-redux'
 import {Jumbotron, Button, Row, Col} from 'react-bootstrap'
 import {useDispatch} from 'react-redux'
@@ -38,6 +38,7 @@ const Recipe = () => {
   }
   const myRecipe = useSelector(state => state.individualRecipe)
   
+  useEffect(()=>{window.scrollTo(0,0)}, [])
 
   //stole this from StackOverflow -- converts API string into valid HTML.
   const renderHTMLContent = (htmlContent) =>
@@ -59,7 +60,7 @@ const Recipe = () => {
 
   return (
     <>
-      <div className="bgImage2">
+      <div className="bgImage2" id="first">
       <Jumbotron className="">
         <h1 className="display-3">{myRecipe.title}</h1>
         <br />

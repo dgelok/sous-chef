@@ -86,7 +86,7 @@ const RecipeCard = (props) => {
     }
     return (
       redirect ?
-      <Redirect to="/Recipe" />
+      <Redirect to="/Recipe/" />
       :
     <>
       <Card style={{ width: '18rem' }} className="m-2">
