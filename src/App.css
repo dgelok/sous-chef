@@ -61,4 +61,5 @@
   color: rgb(54, 0, 54);
   opacity: 90%;
   border-radius: 15px;
+  z-index: 10;
 }
